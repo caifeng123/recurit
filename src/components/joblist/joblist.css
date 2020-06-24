@@ -1,0 +1,49 @@
+.item{
+  width: 355px;
+  height: 98px;
+  border-bottom: 1px solid #E5E5E5;
+}
+.item-top{
+  font-size: 15px;
+  display: flex;
+  line-height: 40px;
+  justify-content: space-between;
+}
+.item-top-jobname{
+  color: #000000;
+  font-weight: 700;
+}
+.item-top-salary{
+  color: #FF891C;
+}
+.item-middle{
+  font-size: 12px;
+  line-height: 26px;
+  margin-bottom: 9px;
+}
+.item-middle-common{
+  width: 64px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
+}
+.item-middle-left{
+  background-color: rgba(255,137,28,.1);
+  color: #FF891C;
+  margin-right: 8px;
+}
+.item-middle-right{
+  background-color: #F3F3F3;
+  color: #666666;
+}
+.item-bottom{
+  color: #999999;
+}
+.item-bottom-common{
+  margin-right: 16px;
+}
+.myicon{
+  width: '20px';
+  height: '20px';
+  fill: '#ccc';
+}

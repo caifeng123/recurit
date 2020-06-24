@@ -1,0 +1,14 @@
+img{
+  width: 100%;
+}
+.swiper-pagination{
+  width: 100%;
+  bottom: 10px;
+}
+.swiper-pagination-bullet{
+  width: 10px;
+  height: 2px;
+  background-color: #fff;
+  margin: 0 5px;
+  border-radius:2px
+}
