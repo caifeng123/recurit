@@ -1,39 +1,43 @@
-import React, { useState } from 'react'
+import React, { useContext} from 'react'
 
 import './selector.css'
 import Icon from '../icon/icon'
-
 import { Selecoritems } from '../../utils/static'
 
-const Selector = () => {
-  const [downSelectindex, setDownSelectindex] = useState(0)
+import {SelectorContext} from '../joblist/joblist'
 
+
+const Selector = ({SelecoritemsMap}) => {
+  const {showshelter,setShowshelter } = useContext(SelectorContext);
+  const clickSelector = (e,selecoritem) =>{
+    if(showshelter!==selecoritem){
+      e.currentTarget.classList.add("active");
+      setShowshelter(selecoritem)
+      window.$("html").animate({scrollTop: window.$('.title').offset().top}, 100);
+    }else{
+      e.currentTarget.classList.remove("active");
+      setShowshelter("")
+    }
+  }
   return (
     <>
-      {
-        Selecoritems?.map(selecoritem => (
-          <div className="selector-shadow">
-            <div></div>
-          </div>
-
-        ))
-      }
-
-      <div style={{ display: 'flex' }}>
+      <div style={{ padding:'10px 0'}}>
         <div className="myselector">
           {
             Selecoritems?.map(selecoritem => (
-              <div className="myselector-item" >
-                {selecoritem}
-                <Icon type="down" style={{ width: '24px', height: '12px', fill: '#333', float: 'right', marginTop: '10px' }}
-                  className="selector-icon" />
+              <div className={showshelter===selecoritem?'activeselect myselector-item':'myselector-item'} key={selecoritem} onClick={(e)=>clickSelector(e,selecoritem)}>
+                <span style={{whiteSpace: 'nowrap'}}>{SelecoritemsMap[selecoritem]}</span>
+                <Icon type="down" style={{ width: '24px', height: '12px', float: 'right', marginTop: '10px',
+                transform: showshelter===selecoritem?'rotate(180deg)':'unset' ,fill:showshelter===selecoritem?'#D5220C':'#333'}}
+                  />
               </div>
             ))
           }
+          <button className="searchbutton"><Icon type="search"
+            style={{ width: '14px', height: '14px', fill: '#fff', transform: ' translate(-50%, 16%)' }}
+          />搜索</button>
         </div>
-        <button className="searchbutton"><Icon type="search"
-          style={{ width: '14px', height: '14px', fill: '#fff', transform: ' translate(-50%, 16%)' }}
-        />搜索</button>
+        
       </div>
     </>
   )

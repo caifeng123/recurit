@@ -1,26 +1,30 @@
-import React,{useEffect,useState} from 'react'
-import {MySwiper} from '../../components/myswiper/myswiper'
+import React, { useRef } from 'react'
+import { MySwiper } from '../../components/myswiper/myswiper'
 
-import {getJobList} from '../../api/index'
-import {IndexBannerImgs,HotCompanyImgs} from '../../utils/static'
+import { IndexBannerImgs, HotCompanyImgs } from '../../utils/static'
 import Joblist from '../../components/joblist/joblist'
-import Selector from '../../components/selector/selector'
 
 import './index.css'
 
-export const Index = ({history}) => {
-  const [pageindex,setPageindex] = useState(1)
+const Index = ({ history }) => {
+  const childRef = useRef();
 
+  const onscroll = (e) => {
+    const { scrollHeight, scrollTop, clientHeight } = e.currentTarget
+    if (scrollHeight - scrollTop - clientHeight < 1) {
+      childRef.current.setPageindex(x=>x+1);
+    }
+  }
   return (
-    <>
-      <MySwiper imgs={IndexBannerImgs}/>
+    // <div onScroll={onScroll} style={{height: '100vh', overflow: 'auto', overflowX: 'hidden'}}>
+    <div className="myscroll" onScroll={onscroll} >
+      <MySwiper imgs={IndexBannerImgs} />
       {
-        HotCompanyImgs&&<img src={require(`../../assets/imgs/hotcompany/${HotCompanyImgs}`)}
-          alt={HotCompanyImgs} onClick={()=>history.push('hotcompany')}/>
+         HotCompanyImgs&&<img src={require(`../../assets/imgs/hotcompany/${HotCompanyImgs}`)}
+          alt={HotCompanyImgs} onClick={() => history.push('hotcompany')} />
       }
-      <h1 className="title">职位招聘</h1>
-      <Selector />
-      <Joblist selector={{jobareaname:'上海'}} history={history}/>
-    </>
+      <Joblist history={history} title="职位招聘" cRef={childRef} />
+    </div>
   )
 }
+export default Index

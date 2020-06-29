@@ -1,0 +1,71 @@
+.bottom-button{
+  line-height: 40px;
+  border-radius: 4px;
+}
+.bottom{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+}
+.bottom-button-left{
+  border: 1px solid #D5220C;
+  background-color: #fff;
+  color: #D5220C;
+  width: 93px;
+}
+.bottom-button-right{
+  width: 234px;
+  background-color: #D5220C;
+  color: #fff;
+  border: 0;
+}
+.middle-shadow{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.8);
+  z-index: 100;
+}
+.middle-shadow img{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 170px;
+}
+.middle-shadow-info{
+  position: absolute;
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  top: 42%;
+}
+.middle-shadow-button{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%,0);
+  width: 140px;
+  line-height: 40px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  color: #fff;
+}
+.jobitem-content{
+  height: 460px;
+  overflow-y: scroll;
+}
+.jobitem-content-top{
+  line-height: 45px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.item-top-salary{
+  color: #FF891C;
+  margin-left: 20px;
+}

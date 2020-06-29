@@ -9,7 +9,7 @@ const Loading = ({ loading }) => {
       {
         loading ? (
           <>
-            <Icon type="load" style={{width: '20px', height: '20px', fill: '#ccc'}} className="myicon" />
+            <Icon type="load" style={{width: '20px', height: '20px', fill: '#ccc',transform:' translate(0, 20%)'}} className="myicon" />
             <span className="textinfo">加载中</span>
           </>
         ) : (
