@@ -10,8 +10,7 @@ import Backhome from '../../components/backhome/backhome'
 
 import './hotcompany.css'
 import Loading from '../../components/loading/loading'
-
-const Item = List.Item
+import Icon from '../../components/icon/icon'
 
 class HotCompany extends Component {
   state = {
@@ -58,9 +57,15 @@ class HotCompany extends Component {
         <SearchBar placeholder="输入公司名称" value={this.state.coname} maxLength={8} onChange={(val) =>this.onInputChange(val)} style={{zIndex:9}}/>
         <div className="wrapper">
           <List renderHeader={() => '点击查看公司详情'}>
+              {/* this.state.companys?.map(company => (
+                <Item arrow="horizontal" key={company.coname} onClick={() => history.push(`/companydetail/${company.coname}`)}>{company.coname}</Item>
+              )) */}
             {
               this.state.companys?.map(company => (
-                <Item arrow="horizontal" key={company.coname} onClick={() => history.push(`/companydetail/${company.coname}`)}>{company.coname}</Item>
+                <div key={company.coname} onClick={() => history.push(`/companydetail/${company.coname}`)}>
+                  {company.coname}
+                  <Icon type='down' className="lookmore"/>
+                </div>
               ))
             }
             <Loading loading={this.state.loading}/>

@@ -10,7 +10,8 @@ import './jobdetail.css'
 const iconstyle = { width: '16px', height: '16px', fill: '#ccc' }
 
 const Jobdetail = ({ history }) => {
-  const { job } = history.location.query
+  const job = history.location.query?history.location.query.job:window.JSON.parse(window.sessionStorage.getItem('job'))
+  history.location.query&&window.sessionStorage.setItem('job', window.JSON.stringify(job));
   const id = job.sync_jobid
   const [showshadow, setShowshadow] = useState(false)
   const [jobinfo, setJobinfo] = useState('')
@@ -21,8 +22,7 @@ const Jobdetail = ({ history }) => {
   }, [id])
 
   return (
-    <>
-    {console.log(job)}
+    <div className="joblist">
       <div className="item">
         <div className="item-top">
           <span className="item-top-jobname">{job.jobname}</span>
@@ -59,7 +59,7 @@ const Jobdetail = ({ history }) => {
         )
       }
       <Backhome history={history} />
-    </>
+    </div>
   )
 }
 export default Jobdetail

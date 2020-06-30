@@ -12,6 +12,10 @@
 .item-top-jobname{
   color: #000000;
   font-weight: 700;
+  max-width: 255px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .item-top-salary{
   color: #FF891C;

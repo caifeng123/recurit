@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { getJobList } from '../../api/index'
-import { CompanyDetailImg } from '../../utils/static'
+import { CompanyDetailImgs } from '../../utils/static'
 
 import Joblist from '../../components/joblist/joblist'
 import Backhome from '../../components/backhome/backhome'
@@ -19,6 +19,7 @@ const CompanyDetail = ({ match, history }) => {
       })
     })
   }, [coname])
+  const CompanyDetailImg = CompanyDetailImgs[0]
   return (
     <>
       <div style={{ position: "relative" }}>

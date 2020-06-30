@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext, useImperativeHandle } from 'react'
+import React, { useEffect, useState, createContext, useImperativeHandle, useRef } from 'react'
 
 import { getJobList } from '../../api/index'
 
@@ -16,11 +16,13 @@ const initSelector = {
   providesalarname: "",
 }
 
-const Joblist = ({ history, title, preselector, cRef }) => {
+const Joblist = ({ history, title, preselector, cRef,changeitem,firstshow,showSelector }) => {
   const [selector, setSelector] = useSelector({
     ...initSelector,
     ...preselector
   })
+  const isfirstshow = useRef(firstshow !== false?true:false)
+  const [isfirstshowshow, setIsfirstshowshow] = useState(firstshow !== false?true:false)
   const [showshelter, setShowshelter] = useState("")
   const [joblists, setJoblists] = useState([])
   const [list, setlist] = useState([])
@@ -35,13 +37,21 @@ const Joblist = ({ history, title, preselector, cRef }) => {
       setlist(degreeList)
   }, [showshelter])
   useEffect(() => {
-    getJobList({ ...selector, pageindex }).then(res => {
-      setJoblists(joblists => joblists.concat(res.data.data.list))
-      if (res.data.data.list.length === 0) {
-        setMyloading(false)
-      }
-    })
-  }, [pageindex, selector])
+    if(!isfirstshow.current){
+      isfirstshow.current = true
+    }else{
+      setIsfirstshowshow(true)
+      getJobList({ ...selector, pageindex,...changeitem }).then(res => {
+        if(changeitem){
+          setJoblists([])
+        }
+        setJoblists(joblists => joblists.concat(res.data.data.list))
+        if (res.data.data.list.length < 40) {
+          setMyloading(false)
+        }
+      })
+    }
+  }, [pageindex, selector,changeitem])
 
   useImperativeHandle(cRef, () => ({
     setPageindex :setPageindex
@@ -65,8 +75,8 @@ const Joblist = ({ history, title, preselector, cRef }) => {
     <>
       <div className="sticky" >
         {title && <div className="title">{title}</div>}
-        {!preselector && <SelectorContext.Provider value={{ showshelter, setShowshelter }}>
-          <Selector SelecoritemsMap={selectorNameMap} />
+        {showSelector && <SelectorContext.Provider value={{ showshelter, setShowshelter }}>
+          <Selector SelecoritemsMap={selectorNameMap} history={history} />
         </SelectorContext.Provider>}
       </div>
       {
@@ -101,7 +111,7 @@ const Joblist = ({ history, title, preselector, cRef }) => {
                   </div>
                 ))
               }
-              <Loading loading={myloading} />
+              {isfirstshowshow&&<Loading loading={myloading} />}
             </div>
           )
       }

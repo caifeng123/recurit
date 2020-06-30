@@ -12,18 +12,18 @@ const Index = ({ history }) => {
   const onscroll = (e) => {
     const { scrollHeight, scrollTop, clientHeight } = e.currentTarget
     if (scrollHeight - scrollTop - clientHeight < 1) {
-      childRef.current.setPageindex(x=>x+1);
+      childRef.current.setPageindex(x => x + 1);
     }
   }
+  const HotCompanyImg = HotCompanyImgs[0]
   return (
-    // <div onScroll={onScroll} style={{height: '100vh', overflow: 'auto', overflowX: 'hidden'}}>
     <div className="myscroll" onScroll={onscroll} >
       <MySwiper imgs={IndexBannerImgs} />
       {
-         HotCompanyImgs&&<img src={require(`../../assets/imgs/hotcompany/${HotCompanyImgs}`)}
-          alt={HotCompanyImgs} onClick={() => history.push('hotcompany')} />
+        HotCompanyImg && <img src={require(`../../assets/imgs/hotcompany/${HotCompanyImg}`)}
+          alt={HotCompanyImg} onClick={() => history.push('hotcompany')} />
       }
-      <Joblist history={history} title="职位招聘" cRef={childRef} />
+      <Joblist history={history} title="职位招聘" cRef={childRef} showSelector={true}/>
     </div>
   )
 }

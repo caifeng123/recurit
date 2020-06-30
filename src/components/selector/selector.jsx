@@ -7,13 +7,13 @@ import { Selecoritems } from '../../utils/static'
 import {SelectorContext} from '../joblist/joblist'
 
 
-const Selector = ({SelecoritemsMap}) => {
+const Selector = ({SelecoritemsMap,history}) => {
   const {showshelter,setShowshelter } = useContext(SelectorContext);
   const clickSelector = (e,selecoritem) =>{
     if(showshelter!==selecoritem){
       e.currentTarget.classList.add("active");
       setShowshelter(selecoritem)
-      window.$("html").animate({scrollTop: window.$('.title').offset().top}, 100);
+      window.$(".myscroll").animate({scrollTop: window.$('.title').offset().top}, 100);
     }else{
       e.currentTarget.classList.remove("active");
       setShowshelter("")
@@ -33,7 +33,7 @@ const Selector = ({SelecoritemsMap}) => {
               </div>
             ))
           }
-          <button className="searchbutton"><Icon type="search"
+          <button className="searchbutton" onClick={() => history.push('search')} ><Icon type="search"
             style={{ width: '14px', height: '14px', fill: '#fff', transform: ' translate(-50%, 16%)' }}
           />搜索</button>
         </div>

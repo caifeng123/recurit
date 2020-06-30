@@ -1,3 +1,8 @@
+.joblist{
+  display: flex;
+  flex-direction: column;
+  height: 97.5vh;
+}
 .bottom-button{
   line-height: 40px;
   border-radius: 4px;
@@ -59,6 +64,7 @@
 .jobitem-content{
   height: 460px;
   overflow-y: scroll;
+  flex: 1;
 }
 .jobitem-content-top{
   line-height: 45px;

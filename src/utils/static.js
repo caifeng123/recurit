@@ -1,19 +1,17 @@
 export const IndexBannerImgs = [
   'banner.png',
-  // 'banner2.png'
+  'banner2.png'
 ]
 
-export const HotCompanyImgs = "hot.png"
+export const HotCompanyImgs =["hot.png"]
 
-export const CompanyDetailImg = "banner2.png"
+export const CompanyDetailImgs =["banner2.png"]
 
-export const Selecoritems = ['providesalarname','degreefrom','divname']
+export const Selecoritems = ['providesalarname','degreefrom']
 
 export const SelecoritemsMap = {
   providesalarname:'薪资要求',
   degreefrom:'学历要求',
-  divname:'学历要求',
-
 }
 
 export const salaryList =  [
