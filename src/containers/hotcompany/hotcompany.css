@@ -3,5 +3,14 @@
   overflow: hidden;
 }
 .lookmore{
-  
+  transform: rotate(-90deg);
+  width: 12px;
+  height: 60px;
+}
+.companyitem{
+  line-height: 60px;
+  display: flex;
+  padding: 0 32px;
+  justify-content: space-between;
+  margin: 16px 0;
 }

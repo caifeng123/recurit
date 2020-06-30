@@ -62,7 +62,7 @@ class HotCompany extends Component {
               )) */}
             {
               this.state.companys?.map(company => (
-                <div key={company.coname} onClick={() => history.push(`/companydetail/${company.coname}`)}>
+                <div key={company.coname} onClick={() => history.push(`/companydetail/${company.coname}`)} className="companyitem">
                   {company.coname}
                   <Icon type='down' className="lookmore"/>
                 </div>
