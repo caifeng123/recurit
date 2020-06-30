@@ -1,0 +1,25 @@
+.wrapper{
+  height: 90vh;
+  overflow: hidden;
+  padding: 0 5px;
+}
+.lookmore{
+  transform: rotate(-90deg);
+  width: 12px;
+  height: 40px;
+}
+.companyitem{
+  line-height: 40px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 0 10px;
+  border-top: 1px solid #ddd;
+}
+.checkinfo{
+  line-height: 40px;
+  font-size: 14px;
+  padding-left: 10px;
+  color: #888;
+}

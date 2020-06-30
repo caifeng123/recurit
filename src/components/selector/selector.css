@@ -1,0 +1,39 @@
+.searchbutton{
+  background-color: #D5220C;
+  flex: 1 1;
+  line-height: 30px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  white-space: nowrap;
+}
+.myselector{
+  flex: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.myselector-item{
+  background: #F3F3F3;
+  padding: 0 5px;
+  color: #333333;
+  line-height: 30px;
+  flex: 1;
+  font-size: 12px;
+  margin-right: 8px;
+  border-radius: 4px;
+  display: flex;
+}
+.selector-shadow{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.activeselect{
+  color: #D5220C;
+}
+.selector-icon{
+  fill: #D5220C !important;
+}
