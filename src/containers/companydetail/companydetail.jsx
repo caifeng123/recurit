@@ -24,7 +24,7 @@ const CompanyDetail = ({ match, history }) => {
     <>
       <div style={{ position: "relative" }}>
         <img src={require(`../../assets/imgs/banner/${CompanyDetailImg}`)} alt={CompanyDetailImg} />
-        <div className="companyname">{companyInfo.coname}</div>
+        <div className="companyname">{coname}</div>
       </div>
       <div className="companyinfo-1">
         <div className="companyinfo-item">

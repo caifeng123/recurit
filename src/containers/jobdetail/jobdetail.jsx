@@ -12,6 +12,7 @@ const iconstyle = { width: '16px', height: '16px', fill: '#ccc' }
 const Jobdetail = ({ history }) => {
   const job = history.location.query?history.location.query.job:window.JSON.parse(window.sessionStorage.getItem('job'))
   history.location.query&&window.sessionStorage.setItem('job', window.JSON.stringify(job));
+  console.log(job)
   const id = job.sync_jobid
   const [showshadow, setShowshadow] = useState(false)
   const [jobinfo, setJobinfo] = useState('')

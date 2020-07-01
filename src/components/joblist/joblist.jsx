@@ -37,6 +37,7 @@ const Joblist = ({ history, title, preselector, cRef,changeitem,firstshow,showSe
       setlist(degreeList)
   }, [showshelter])
   useEffect(() => {
+    console.log(pageindex, selector,changeitem)
     if(!isfirstshow.current){
       isfirstshow.current = true
     }else{
@@ -71,6 +72,11 @@ const Joblist = ({ history, title, preselector, cRef,changeitem,firstshow,showSe
     setMyloading(true)
   }
 
+  const lookmore = (e,coname) =>{
+    history.push(`/companydetail/${coname}`)
+    e.stopPropagation()
+  }
+
   return (
     <>
       <div className="sticky" >
@@ -100,12 +106,12 @@ const Joblist = ({ history, title, preselector, cRef,changeitem,firstshow,showSe
                       <span className="item-top-salary">{job.providesalarname}</span>
                     </div>
                     <div className="item-middle">
-                      <span className="item-middle-left item-middle-common" onClick={() => history.push(`/companydetail/${job.coname}`)}>更多职位</span>
+                      {showSelector&&<span className="item-middle-left item-middle-common" onClick={(e) => lookmore(e,job.coname)}>更多职位</span>}
                       <span className="item-middle-right item-middle-common">{job.coname}</span>
                     </div>
                     <div className="item-bottom">
                       <span className="item-bottom-common"><Icon type="city" style={IconStyle} />&nbsp;{job.jobareaname}</span>
-                      <span className="item-bottom-common"><Icon type="degree" style={IconStyle} />&nbsp;{job.degreefrom}及以上</span>
+                      <span className="item-bottom-common"><Icon type="degree" style={{...IconStyle,transform: 'translate(0, 2px)'}} />&nbsp;{job.degreefrom}及以上</span>
                       <span className="item-bottom-common"><Icon type="people" style={IconStyle} />&nbsp;{job.jobnum}人</span>
                     </div>
                   </div>

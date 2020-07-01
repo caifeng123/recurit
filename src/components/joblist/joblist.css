@@ -81,4 +81,5 @@
   position: -webkit-sticky;
   top: 0;
   background-color: #fff;
+  z-index: 9;
 }

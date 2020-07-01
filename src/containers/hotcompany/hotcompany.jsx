@@ -34,7 +34,9 @@ class HotCompany extends Component {
   }
   componentDidMount(){
     const bs =  new BScroll('.wrapper',{
-      pullUpLoad:true
+      pullUpLoad:true,
+      probeType: 3,
+      click: true
     })
     //初始化数据操作
     this.getmoreinfo(1,"")
@@ -57,9 +59,6 @@ class HotCompany extends Component {
         <SearchBar placeholder="输入公司名称" value={this.state.coname} maxLength={8} onChange={(val) =>this.onInputChange(val)} style={{zIndex:9}}/>
         <div className="wrapper">
           <List renderHeader={() => '点击查看公司详情'}>
-              {/* this.state.companys?.map(company => (
-                <Item arrow="horizontal" key={company.coname} onClick={() => history.push(`/companydetail/${company.coname}`)}>{company.coname}</Item>
-              )) */}
             {
               this.state.companys?.map(company => (
                 <div key={company.coname} onClick={() => history.push(`/companydetail/${company.coname}`)} className="companyitem">

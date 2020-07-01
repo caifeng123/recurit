@@ -4,7 +4,7 @@
 import ajax from './ajax'
 
 const defaultSelector = {
-  project_id:127,
+  project_id:134,
   pageindex:1
 }
 export const getJobList = (selector) =>ajax('https://evp.51job.com/51job/api/1.0/index.php/yun/index/getjob',{...defaultSelector,...selector})

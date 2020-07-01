@@ -13,7 +13,7 @@ const Selector = ({SelecoritemsMap,history}) => {
     if(showshelter!==selecoritem){
       e.currentTarget.classList.add("active");
       setShowshelter(selecoritem)
-      window.$(".myscroll").animate({scrollTop: window.$('.title').offset().top}, 100);
+      document.querySelector('.title').scrollIntoView({behavior: 'smooth'})
     }else{
       e.currentTarget.classList.remove("active");
       setShowshelter("")
