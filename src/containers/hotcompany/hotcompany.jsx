@@ -23,7 +23,7 @@ class HotCompany extends Component {
   getmoreinfo = (pageindex,input) =>{
     getCompanyList({ pageindex, coname: input }).then(res=>{
       this.setState({companys:this.state.companys.concat(res.data.data.list)})
-      if(res.data.data.list.length===0){
+      if(res.data.data.list.length<40){
         this.setState({loading:false})
       }
     })
